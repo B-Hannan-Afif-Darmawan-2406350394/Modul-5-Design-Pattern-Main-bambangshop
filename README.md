@@ -78,6 +78,10 @@ This is the place for you to write reflections:
 
 #### Reflection Publisher-1
 
+1. Yes, currently a single Model struct is enough. Unless if we wanted to support different notification methods (for now URLs)
+2. Yes, with `DashMap`, we are able to perform lookups and deletions based on a unique key (the url). Which is faster
+3. Yes, we still need `DashMap`. Singleton pattern is used to ensure only one instance of database exists. `DashMap` is used to handle thread-safe concurrent access since Rust is multi-threaded.
+
 #### Reflection Publisher-2
 
 #### Reflection Publisher-3
