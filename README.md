@@ -89,3 +89,8 @@ This is the place for you to write reflections:
 3. Yes, I have. Postman helps me test whether the API works or not. I'm interested in the Postman's API main feature, which allow me to send requests using any HTTP method, view simple responses, and use various options for transforming or converting the data. 
 
 #### Reflection Publisher-3
+
+1. We use the Push model. This publisher sends the notification payload to the subscriber's URL whenever an event occurs (such as create, publish, delete).
+2. The advantage is less burden on the server (publisher). The server doesn't have to send a lot of HTTP requests to different URLs. The subscriber only pull when they need the data.
+3. If we don't use multi-threading, then sending notification would be synchronous and request blocking each other. The server would have to wait for the first HTTP post request to finish before sending to second request, and so on.
+
