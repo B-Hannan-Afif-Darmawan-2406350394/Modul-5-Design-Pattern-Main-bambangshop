@@ -78,10 +78,14 @@ This is the place for you to write reflections:
 
 #### Reflection Publisher-1
 
-1. Yes, currently a single Model struct is enough. Unless if we wanted to support different notification methods (for now URLs)
-2. Yes, with `DashMap`, we are able to perform lookups and deletions based on a unique key (the url). Which is faster
+1. Yes, currently a single Model struct is enough. Unless if we wanted to support different notification methods (for now URLs).
+2. Yes, with `DashMap`, we are able to perform lookups and deletions based on a unique key (the url). Which is faster.
 3. Yes, we still need `DashMap`. Singleton pattern is used to ensure only one instance of database exists. `DashMap` is used to handle thread-safe concurrent access since Rust is multi-threaded.
 
 #### Reflection Publisher-2
+
+1. Because, as applications grows, this violates the **Single Responsibility Principle (SRP)**, which is the core part of SOLID design principles.
+2. It separates them and creates a clear separation of concerns. For example, if `Program` wants to notify a `Subscriber`, it must contains the logic for both `Subscriber` and `Notification`. If we want to change how a `Notification` is structured, you have to change the code inside `Program` as well. The codes become difficult to debug.
+3. Yes, I have. Postman helps me test whether the API works or not. I'm interested in the Postman's API main feature, which allow me to send requests using any HTTP method, view simple responses, and use various options for transforming or converting the data. 
 
 #### Reflection Publisher-3
